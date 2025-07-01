@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Brokatowy Łukasz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e1e2f, #3e3e5e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Pacifico', cursive;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 64px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(90deg, #ffd700, #ff69b4, #00ffff, #ffd700);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glitter 8s linear infinite;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    @keyframes glitter {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Drobne błyszczące iskierki w tle */
+    .sparkle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: sparkle 5s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateY(-10px) scale(1.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Łukasz to faja</h1>
+
+  <!-- Iskierki -->
+  <script>
+    const createSparkle = () => {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = Math.random() * window.innerWidth + 'px';
+      sparkle.style.top = Math.random() * window.innerHeight + 'px';
+      sparkle.style.animationDuration = (3 + Math.random() * 4) + 's';
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 7000);
+    };
+
+    setInterval(createSparkle, 200);
+  </script>
+</body>
+</html>
